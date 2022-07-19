@@ -87,7 +87,7 @@ namespace Viagogo
                 
             
             // 5. Sort by other fields (e.g price)
-            var furtherSortedEvents = events.Select(e => new Event { Name = e.Name, City = e.City, Distance = OptimizedGetDistance(customer.City, e.City) })
+            var furtherSortedEvents = events.Select(e => new Event { Name = e.Name, City = e.City, Distance = OptimizedGetDistance(customer.City, e.City), Price = GetPrice(e)})
                                                             .OrderBy(e => e.Distance)
                                                             .ThenBy(e => e.Price)
                                                             .Take(5);
